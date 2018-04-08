@@ -75,13 +75,13 @@ def isSubstring(str1, str2):
 
 # #Write code to remove duplicates from an unsorted linked list
 # '''class Node(object):
-#     __init__(self, data):
+#    def __init__(self, data):
 #         self.data = data
 #         self.next = None
 #         self.prev = None
 #
 # class LinkedList(object):
-#     __init__(self, data):
+#    def __init__(self, data):
 #         self.size = 0
 #         self.head = None'''
 
@@ -95,4 +95,68 @@ def isSubstring(str1, str2):
                 self.head.next.prev = self.head.prev
             self.head = self.head.next
 
-            
+
+#Implement an algorithm to find the kthto last element of a singly linked listself.
+
+    def kth_last(k):
+        i = 1
+        if k > self.size+1:
+            return "That numbered element does not exist."
+        while self.head.next != None:
+            self.head = self.next
+        while i < k:
+            self.head = self.head.prev
+            i += 1
+        return self.head.data
+
+#Implement an algorithm to delete the middle node in a linked listself
+
+    def delete_middle():
+        node1 = self.head
+        node2 = self.head
+        while node2.next.next != None:
+            node2 = node2.next.next
+            node1 = node1.next
+        if node2.next.next == None:
+            node1.next = node1.next.next
+
+
+
+#SetofStacks should be composed of several stacks and should create a new stack once the
+#previous one exceeds capacity. Pop() and Push() should return values as if it were a single stackself.
+
+class Stack(object):
+    def __init__(self, capacity):
+            self.stack = []
+            self.lastStack = None
+            self.nextStack = None
+            self.capacity = capacity
+
+class SetofStacks(object):
+    def __init__(self,capacity):
+            self.lastStack = None
+            self.nextStack = None
+            self.size = 0
+    def getLastStack():
+        self.stack = self.lastStack
+        if self.size >= 3:
+            self.lastStack = self.lastStack.lastStack
+            self.size -=1
+        else:
+            self.lastStack = None
+            self.size -= 1
+
+    def push(self,value):
+        self.value = value
+        if len(self.stack) < self.capacity:
+            self.stack.append(self.value)
+        else:
+            self.lastStack = self.stack
+            self.stack = Stack(self.capacity)
+            self.stack.stack.append(self.value)
+    def pop():
+        if len(self.stack) == 0:
+            self.getLastStack()
+            self.stack.pop()
+        else:
+            self.stack.pop()
