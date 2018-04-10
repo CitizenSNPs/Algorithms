@@ -160,3 +160,27 @@ class SetofStacks(object):
             self.stack.pop()
         else:
             self.stack.pop()
+#Write a rpgram to sort a stack such that the smallest items are on the top.
+#You can use an additional temporary stack, but you may not copy elements into any other
+#data structure. The stack supports the following operations: push, pop, peek, isEmpty
+
+
+self.stack1 = []
+self.stack2 = []
+
+def ascending_stack():
+    temp = None
+    while len(self.stack1) > 0:
+        if temp = None:
+            temp = self.stack.pop()
+        else:
+            if len(self.stack2)>0 and self.stack2.pop() > temp:
+                self.stack2.pop()
+                self.stack1.push(self.stack2.pop())
+                self.stack2.push(temp)
+            else:
+                self.stack2.push(temp)
+
+    while len(self.stack2) > 0:
+        self.stack2.pop()
+        self.stack1.push(self.stack2.pop())
